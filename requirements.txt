@@ -1,0 +1,7 @@
+Flask
+svgwrite
+waitress
+reportlab
+svglib
+cairocffi
+cairosvg

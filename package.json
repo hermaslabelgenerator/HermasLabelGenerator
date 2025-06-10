@@ -1,0 +1,58 @@
+{
+  "name": "hermaslabelmaker",
+  "version": "1.0.0",
+  "description": "Hermas Label Maker Application - A label generation tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --config electron-builder.config.js",
+    "build:dev": "build.bat development",
+    "build:prod": "build.bat production",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Ashwan",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.3.0",
+    "electron-builder": "^26.0.12"
+  },
+  "electron-builder": {
+    "appId": "com.hermas.labelmaker",
+    "productName": "Hermas Label Maker",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["portable"],
+      "icon": "./static/Project-Hermas-logo.ico"
+    },
+    "asar": true,
+    "extraResources": [
+      {
+        "from": "dist/HermasLabelMaker",
+        "to": "app/dist/HermasLabelMaker",
+        "filter": ["**/*"]
+      }
+    ],
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
+    "files": [
+      "**/*",
+      "!**/*.{o,obj,ilk,lib,exp}",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "extends": "./build.config.js"
+  }
+}
