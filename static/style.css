@@ -1,7 +1,29 @@
+@font-face {
+  font-family: 'Franklin Gothic Demi';
+  src: url('/static/font/franklingothic_demi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*
   style.css should only contain your custom CSS overrides and not duplicate Tailwind's output.
   Remove any Tailwind-generated CSS or duplicate rules.
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap');
+
+/* Add cross-browser appearance reset for form elements */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body {
+    font-family: 'Franklin Gothic Demi', 'Poppins', 'Noto Sans Malayalam', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap');
 
