@@ -34,12 +34,6 @@ button, input, select, textarea {
   appearance: none;
 }
 
-body {
-    font-family: 'Poppins', 'Noto Sans Malayalam', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 #labelQueueList::-webkit-scrollbar {
     width: 8px;
 }
