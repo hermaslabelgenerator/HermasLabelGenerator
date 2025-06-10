@@ -1,7 +1,5 @@
-Flask
-svgwrite
-waitress
-reportlab
-svglib
-cairocffi
-cairosvg
+Flask==3.1.1
+svgwrite==1.4.3
+waitress==3.0.2
+reportlab==4.4.1
+svglib==1.5.1

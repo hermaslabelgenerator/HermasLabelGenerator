@@ -113,12 +113,18 @@ def generate_labels_pdf():
     pdf_file = tempfile.mktemp(suffix=".pdf")
     dwg = svgwrite.Drawing(svg_file, size=(mm(PAGE_WIDTH_MM), mm(PAGE_HEIGHT_MM)))
 
-    # Embed Franklin Gothic Demi font using @font-face in SVG defs with absolute file path for CairoSVG compatibility
-    font_abs_path = os.path.abspath(os.path.join(app.static_folder, 'font', 'franklingothic_demi.ttf')).replace('\\', '/')
+    # Get the base64 encoded font data
+    font_path = os.path.join(app.static_folder, 'font', 'franklingothic_demi.ttf')
+    with open(font_path, 'rb') as font_file:
+        font_data = font_file.read()
+    import base64
+    font_base64 = base64.b64encode(font_data).decode('utf-8')
+    
+    # Embed Franklin Gothic Demi font using @font-face with base64 data
     font_face_css = f'''
     @font-face {{
         font-family: "Franklin Gothic Demi";
-        src: url("file:///{font_abs_path}");
+        src: url(data:font/ttf;base64,{font_base64});
     }}
     '''
     dwg.defs.add(dwg.style(font_face_css))
